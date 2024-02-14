@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #ddd;
+            text-align: center;
+            margin: 30px;
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        .gallery{
+            width: 80%;
+            margin: 20px auto;
+            border: 10px solid white;
+            list-style: none;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h2>My Gallery</h2>
+    <ul class="gallery">
+        <li><img src="img/kerja1.jpg" alt=""></li>
+        <li><img src="img/pantai2.jpg" alt=""></li>
+        <li><img src="img/pantai3.jpg" alt=""></li>
+        <li><img src="img/pantai4.jpg" alt=""></li>
+        <li><img src="img/sunrise1.jpg" alt=""></li>
+        <li><img src="img/sunrise3.jpg" alt=""></li>
+    </ul>
+
+</body>
+</html>

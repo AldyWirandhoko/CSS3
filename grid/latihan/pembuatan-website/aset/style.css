@@ -1,0 +1,289 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+body{
+    background-color: #ddd;
+    font-size: 18px;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    margin: 50px;
+}
+/* Container */
+.container {
+    display: grid;
+    gap: 10px;
+}
+
+/* Header */
+.header{
+    display: grid;
+    grid-template-areas: 
+        'hero hero feature-1'
+        'hero hero feature-2';
+}
+.hero{
+    grid-area: hero;
+    min-height: 300px;
+    background-image: url(../img/sunrise3.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+.hero > * {
+    display: none;
+}
+
+.features {
+    background-color: black;
+    color: rgb(255, 255, 255);
+    display: grid;
+    /* justify-content: center;
+    align-content: center; */
+    place-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.feature-1{
+    grid-area: feature-1;
+    background-image: url(../img/pantai4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.feature-2{
+    grid-area: feature-2;
+    background-image: url(../img/sunrise1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.features .number{
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 2em;
+    font-weight: 200;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: 1s;
+    transform: scale(0);
+}
+.features:hover .number{
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.8);
+    transform: scale(1.5);
+}
+
+/* Navigation */
+.menu {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+.menu .brand{
+    font-size: 2em;
+    font-family: "Protest Revolution", sans-serif;
+}
+.menu ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+}
+.menu ul li a{
+    display: block;
+    /* background-color: black; */
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    padding: 5px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border-radius: 2%;
+    transition: all .2s ease-in-out;
+}
+.menu ul li:hover a{
+    background-color: black;
+    color: white;
+}
+
+/* Hamburger Menu */
+.menu_toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+}
+.menu_toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    opacity: 0;
+    left: -5px;
+    top: -3px;
+    cursor: pointer;
+    z-index: 2;
+}
+.menu_toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+
+/* Hamburger menu animation */
+.menu_toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu_toggle input:checked ~ span:nth-child(2){
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu_toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+.menu_toggle input:checked ~ span:nth-child(4){
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu_toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+/* Services */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+.service {
+    background-color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #d1d1d1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+.service .icon{
+    font-size: 2em;
+}
+.service h3{
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 2em;
+}
+.service p{
+    font-weight: 400;
+    font-size: 0.8em;
+}
+
+/* Gallery */
+.gallery{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+}
+.gallery h2{
+    font-family: "Protest Revolution", sans-serif;
+    font-size: 2em;
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.gallery>img{
+    filter: grayscale(100%) opacity(35%);
+    transition: all .4s ease;
+}
+.gallery>img:hover{
+    filter: grayscale(0%) opacity(100%);
+}
+
+/* Responsive Breakpoint */
+@media (max-width: 1024px) {
+    .menu{
+        order: inherit;
+        grid-template-columns: 1fr;
+    }
+    .menu .brand{
+        display: none;
+    }
+    .menu ul li a{
+        background-color: black;
+        color: rgb(255, 255, 255);
+        transition: all .2s ease-in-out;
+    }
+    .menu ul li:hover a{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+    .header .hero > *{
+        display: block;
+        color: rgb(255, 255, 255);
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .header .hero{
+        font-family: "Protest Revolution", sans-serif;
+        text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        font-size: 1.5em;
+        font-weight: 300;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+    }
+}
+@media (max-width: 768px) {
+    .menu{
+        order: -1;
+        justify-items: end;
+    }
+    .menu ul {
+        display: flex;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(0, 0, 0);
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+    .menu ul.slide {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .menu_toggle {
+        display: flex;
+    }
+}
+@media (max-width: 600px) {
+    body {
+        margin: 15px;
+    }
+    .header {
+        grid-template-areas: 
+        'hero'
+        'feature-1'
+        'feature-2';
+        
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coba layout float</title>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            font-family: arial;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            border: 5px solid #333;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        header{
+            background-color: chocolate;
+            padding: 60px 0;
+        }
+        .content::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .sidebar {
+            float: left;
+            width: 40%;
+        }
+        .sidebar aside{
+            background-color: blueviolet;
+            padding: 50px 0;
+        }
+        .sidebar nav{
+            background-color: cadetblue;
+            padding: 30px 0;
+        }
+        main{
+            background-color: tomato;
+            padding: 91.5px;
+            float: right;
+            width: 60%;
+            box-sizing: border-box;
+        }
+        footer{
+            background-color: aquamarine;
+            padding: 50px 0;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>Header</header>
+        <div class="content">
+            <div class="sidebar">
+                <aside>Aside</aside>
+                <nav>Nav</nav>
+            </div>
+            <main>Main</main>
+        </div>
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>
