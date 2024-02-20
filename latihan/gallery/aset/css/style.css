@@ -64,7 +64,7 @@ h1{
 
 .gallery li a:hover span {
     opacity: 1;
-    transform: scale(10) rotate(360deg);
+    transform: scale(1) rotate(360deg);
 }
 
 
